@@ -26,7 +26,7 @@ module.exports = function(app) {
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
   app.use(compression());
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.urlencoded({extended: false}));
   app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(cookieParser());
@@ -38,9 +38,9 @@ module.exports = function(app) {
     secret: config.secrets.session,
     resave: true,
     saveUninitialized: true,
-    store: new mongoStore({ mongoose_connection: mongoose.connection })
+    store: new mongoStore({mongoose_connection: mongoose.connection})
   }));
-  
+
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'public')));
