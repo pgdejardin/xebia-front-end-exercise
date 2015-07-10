@@ -5,10 +5,10 @@
   <ul class="list-group">
     <li class="list-group-item clearfix" ng-repeat="user in users">
       <strong>{{user.name}}</strong>
+      <span class="text-muted"> {{user.email}}</span>
       <span class="pull-right">
         <a ng-click="delete(user)" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
       </span>
-      <span class="text-muted"> {{user.email}}</span>
     </li>
   </ul>
 </div>
