@@ -7,6 +7,5 @@ module.exports = {
   mongo: {
     uri: 'mongodb://localhost/frontendexercise-dev'
   },
-
   seedDB: true
 };
