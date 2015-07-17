@@ -58,7 +58,7 @@ var all = {
     clientSecret: process.env.GOOGLE_SECRET || 'secret',
     callbackURL: (process.env.DOMAIN || '') + '/auth/google/callback'
   },
-  xebiaApiUrl: 'http://henri-potier.xebia.fr/books'
+  xebiaApiUrl: 'http://henri-potier.xebia.fr'
 };
 
 // Export the config object based on the NODE_ENV
