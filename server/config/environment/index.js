@@ -54,8 +54,8 @@ var all = {
   },
 
   google: {
-    clientID: process.env.GOOGLE_ID || 'id',
-    clientSecret: process.env.GOOGLE_SECRET || 'secret',
+    clientID: process.env.GOOGLE_ID || '370811156127-hancelcrb8fqdd6q68q6osvtvopeh4hg.apps.googleusercontent.com',
+    clientSecret: process.env.GOOGLE_SECRET || 'BbCo007gj4FWxD56DMNjqn1k',
     callbackURL: (process.env.DOMAIN || '') + '/auth/google/callback'
   },
   xebiaApiUrl: 'http://henri-potier.xebia.fr'
