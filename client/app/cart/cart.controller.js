@@ -1,7 +1,19 @@
 'use strict';
 
 angular.module('frontEndExerciseApp')
-  .controller('CartCtrl', function($scope, ngCart, booksService) {
+  .controller('CartCtrl', function($scope, $modal, ngCart, booksService, shopService) {
+
+    $scope.httpSettings = {
+      url: '/api/carts/checkout',
+      successCallback: function(res) {
+        console.log(res);
+        //$modal();
+        ngCart.empty();
+      },
+      errorCallback: function(err) {
+        console.log(err);
+      }
+    };
 
     $scope.$on('ngCart:change', function() {
       getPromotions();
@@ -36,6 +48,11 @@ angular.module('frontEndExerciseApp')
         });
       }
     }
+
+    $scope.checkout = function() {
+      console.log('items to checkout', ngCart.getItems());
+      shopService.checkout().success().error();
+    };
 
     var init = function() {
       ngCart.setTaxRate(0);

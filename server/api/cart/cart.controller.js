@@ -54,6 +54,10 @@ exports.destroy = function(req, res) {
   });
 };
 
+exports.checkout = function(req, res) {
+  return res.send(200);
+};
+
 function handleError(res, err) {
   return res.send(500, err);
 }

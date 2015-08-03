@@ -5,7 +5,9 @@ var mongoose = require('mongoose'),
 
 var CartSchema = new Schema({
   name: String,
-  info: String,
+  description: String,
+  _id: String,
+  items: Array,
   active: Boolean
 });
 

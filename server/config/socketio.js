@@ -18,6 +18,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/order/order.socket').register(socket);
   require('../api/proxy-book/proxy-book.socket').register(socket);
   require('../api/cart/cart.socket').register(socket);
   require('../api/book/book.socket').register(socket);
