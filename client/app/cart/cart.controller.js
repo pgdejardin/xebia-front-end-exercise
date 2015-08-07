@@ -3,12 +3,19 @@
 angular.module('frontEndExerciseApp')
   .controller('CartCtrl', function($scope, $modal, ngCart, booksService, shopService) {
 
+    $scope.items = 0;
+
     $scope.httpSettings = {
       url: '/api/carts/checkout',
       successCallback: function(res) {
         console.log(res);
-        //$modal();
+        $modal.open({
+          templateUrl: 'order-success.tpl.html',
+          controller: 'OrderModalCtrl',
+          size: 'sm'
+        });
         ngCart.empty();
+        $scope.items = 0;
       },
       errorCallback: function(err) {
         console.log(err);
@@ -16,6 +23,7 @@ angular.module('frontEndExerciseApp')
     };
 
     $scope.$on('ngCart:change', function() {
+      $scope.items = ngCart.getTotalItems();
       getPromotions();
     });
 
@@ -57,6 +65,7 @@ angular.module('frontEndExerciseApp')
     var init = function() {
       ngCart.setTaxRate(0);
       getPromotions();
+      $scope.items = ngCart.getTotalItems();
     };
 
     init();

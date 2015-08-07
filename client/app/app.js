@@ -41,13 +41,16 @@ angular.module('frontEndExerciseApp', [
     };
   })
 
-  .run(function ($rootScope, $location, Auth) {
+  .run(function($rootScope, $location, Auth, $templateCache) {
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function (event, next) {
       Auth.isLoggedInAsync(function(loggedIn) {
+        //noinspection JSUnresolvedVariable
         if (next.authenticate && !loggedIn) {
           $location.path('/login');
         }
       });
     });
+
+    $templateCache.put('order-success.tpl.html', '<div class="modal-header"><h3 class="modal-title">I\'m a modal!</h3></div><div class="modal-body">Your order has been validated.<br/>You can view it on your account page.</div><div class="modal-footer"><button class="btn btn-primary" ng-click="ok()">OK</button></div>');
   });

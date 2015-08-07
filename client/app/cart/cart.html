@@ -3,19 +3,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3>Cart <span> (ngcart-cart)</span></h3>
+      <h3>Cart</h3>
       <ngcart-cart></ngcart-cart>
     </div>
   </div>
-  <div class="row">
+  <div class="row" ng-show="items > 0">
     <div class="col-md-12">
       <h3>Checkout</h3>
 
       <div class="row">
-        <!--<div class="col-xs-4">-->
-        <!--<h4>service 'log'</h4>-->
-        <!--<ngcart-checkout service="log">Checkout</ngcart-checkout>-->
-        <!--</div>-->
         <div class="col-xs-4">
           <h4>Pay</h4>
           <ngcart-checkout service="http" settings="httpSettings">Checkout</ngcart-checkout>
@@ -47,13 +43,6 @@
       </tr>
       </thead>
       <tfoot>
-      <!--<tr ng-show="ngCart.getTax()">-->
-      <!--<td></td>-->
-      <!--<td></td>-->
-      <!--<td></td>-->
-      <!--<td>Reduction:</td>-->
-      <!--<td>{{ ngCart.getTax() | currency }}</td>-->
-      <!--</tr>-->
       <tr ng-show="ngCart.getShipping()">
         <td></td>
         <td></td>
@@ -87,8 +76,8 @@
 </script>
 
 <script type="text/ng-template" id="template/ngCart/checkout.html">
-  <div ng-if="service=='http' || service == 'log'">
-    <button class="btn btn-primary" ng-click="checkout()" ng-disabled="!ngCart.getTotalItems()" ng-transclude>Checkout</button>
+  <div ng-if="service=='http'">
+    <button class="btn btn-primary" ng-click="checkout()" ng-if="ngCart.getTotalItems()" ng-transclude>Checkout</button>
   </div>
   <div ng-if="service=='paypal'">
     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" ng-show="ngCart.getTotalItems()">
