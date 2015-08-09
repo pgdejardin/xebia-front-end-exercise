@@ -9,9 +9,9 @@
       <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
 
         <div class="form-group">
-          <label>Current Password</label>
+          <label for="oldPassword">Current Password</label>
 
-          <input type="password" name="password" class="form-control" ng-model="user.oldPassword"
+          <input type="password" id="oldPassword" name="password" class="form-control" ng-model="user.oldPassword"
                  mongoose-error/>
           <p class="help-block" ng-show="form.password.$error.mongoose">
               {{ errors.other }}
@@ -19,9 +19,9 @@
         </div>
 
         <div class="form-group">
-          <label>New Password</label>
+          <label for="newPassword">New Password</label>
 
-          <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword"
+          <input type="password" id="newPassword" name="newPassword" class="form-control" ng-model="user.newPassword"
                  ng-minlength="3"
                  required/>
           <p class="help-block"
@@ -36,4 +36,11 @@
       </form>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-12">
+
+    </div>
+  </div>
+
 </div>

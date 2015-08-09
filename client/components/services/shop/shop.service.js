@@ -5,11 +5,14 @@ angular.module('frontEndExerciseApp')
     // AngularJS will instantiate a singleton by calling "new" on this function
 
     //var orderUrl = '/api/order';
-    var cartUrl = '/api/cart';
+    var cartUrl = '/api/carts';
 
     return {
       checkout: function(cart) {
-        $http.post(cartUrl + '/checkout', cart);
+        return $http.post(cartUrl + '/checkout', cart);
+      },
+      getCarts: function () {
+        return $http.get(cartUrl + '/');
       }
-    }
+    };
   });
