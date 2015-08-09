@@ -67,17 +67,33 @@ exports.checkout = function(req, res) {
   //  userId: req.user._id
   //});
   //console.log(cartToInsert);
-  Cart.create(new Cart({
+  var cart = new Cart({
     items: _.pluck(req.body.data.items, 'name'),
     discount: req.body.data.shipping,
     total: req.body.data.totalCost,
     userId: req.user._id
-  }), function(err, cart2) {
-    if (err) { handleError(res, err); }
-    console.log('cart in bdd:', cart2);
-    console.log('err:', err);
-    return res.json(201, cart2);
   });
+  cart.save(function (err, cart) {
+    if (err) {
+      handleError(res, err);
+    }
+    else {
+      console.log(cart);
+      return res.json(201, cart);
+    }
+  });
+
+  //Cart.create(new Cart({
+  //  items: _.pluck(req.body.data.items, 'name'),
+  //  discount: req.body.data.shipping,
+  //  total: req.body.data.totalCost,
+  //  userId: req.user._id
+  //}), function(err, cart2) {
+  //  if (err) { handleError(res, err); }
+  //  console.log('cart in bdd:', cart2);
+  //  console.log('err:', err);
+  //  return res.json(201, cart2);
+  //});
   //return res.send(200);
 };
 

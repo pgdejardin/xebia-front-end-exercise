@@ -4,7 +4,6 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var CartSchema = new Schema({
-  _id: String,
   items: Array,
   discount: Number,
   //tax: Number,
