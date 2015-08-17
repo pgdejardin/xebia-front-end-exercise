@@ -56,8 +56,9 @@ exports.destroy = function (req, res) {
 
 exports.checkout = function (req, res) {
   var cart = new Cart({
-    items: _.pluck(req.body.data.items, 'name'),
+    items: req.body.data.items,
     discount: req.body.data.shipping,
+    date: new Date(),
     total: req.body.data.totalCost,
     userId: req.user._id
   });

@@ -13,8 +13,9 @@
 
           <input type="password" id="oldPassword" name="password" class="form-control" ng-model="user.oldPassword"
                  mongoose-error/>
+
           <p class="help-block" ng-show="form.password.$error.mongoose">
-              {{ errors.other }}
+            {{ errors.other }}
           </p>
         </div>
 
@@ -22,8 +23,8 @@
           <label for="newPassword">New Password</label>
 
           <input type="password" id="newPassword" name="newPassword" class="form-control" ng-model="user.newPassword"
-                 ng-minlength="3"
-                 required/>
+                 ng-minlength="3" required/>
+
           <p class="help-block"
              ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
             Password must be at least 3 characters.
@@ -36,11 +37,45 @@
       </form>
     </div>
   </div>
+  <br/>
+  <br/>
 
   <div class="row">
+    <div class="col-sm-12">
+      <h1>Your orders</h1>
+    </div>
     <div class="col-md-12">
-
+      <table class="table table-striped" ng-if="orders.length > 0">
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Items</th>
+          <th>Quantity</th>
+          <th>Discount</th>
+          <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="order in orders | orderBy:'date'">
+          <td>{{order.date | date:'medium'}}</td>
+          <td>
+            <ul class="list">
+              <li ng-repeat="item in order.items">{{item.name}}</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="list">
+              <li ng-repeat="item in order.items">{{item.quantity}}</li>
+            </ul>
+          </td>
+          <td>{{order.discount | currency}}</td>
+          <td>{{order.total | currency}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="alert alert-warning" role="alert" ng-if="orders.length === 0">
+        You didn't made any order.
+      </div>
     </div>
   </div>
-
 </div>

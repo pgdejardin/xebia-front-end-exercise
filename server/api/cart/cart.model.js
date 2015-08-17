@@ -6,9 +6,7 @@ var mongoose = require('mongoose'),
 var CartSchema = new Schema({
   items: Array,
   discount: Number,
-  //tax: Number,
-  //taxRate: Number,
-  //subTotal: Number,
+  date: Date,
   total: Number,
   userId: String
 });

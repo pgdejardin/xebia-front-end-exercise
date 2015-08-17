@@ -3,7 +3,7 @@
 angular.module('frontEndExerciseApp')
   .controller('SettingsCtrl', function ($scope, User, Auth, shopService) {
     $scope.errors = {};
-    $scope.carts = null;
+    $scope.orders = [];
 
     $scope.changePassword = function(form) {
       $scope.submitted = true;
@@ -23,7 +23,7 @@ angular.module('frontEndExerciseApp')
     $scope.getCarts = function () {
       shopService.getCarts().success(function (res) {
         console.log(res);
-        $scope.carts = res;
+        $scope.orders = res;
       }).error(function (err) {
         console.error(err);
       });
