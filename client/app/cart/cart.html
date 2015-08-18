@@ -3,17 +3,17 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3>Cart</h3>
+      <h1>Your Cart</h1>
       <ngcart-cart></ngcart-cart>
     </div>
   </div>
   <div class="row" ng-show="items > 0">
     <div class="col-md-12">
-      <h3>Checkout</h3>
+      <h1>Checkout</h1>
 
       <div class="row">
         <div class="col-xs-4">
-          <h4>Pay</h4>
+          <h4>CB</h4>
           <ngcart-checkout service="http" settings="httpSettings">Checkout</ngcart-checkout>
         </div>
         <div class="col-xs-4">
@@ -93,8 +93,8 @@
       <input type="hidden" name="tax_rate" value="{{ ngCart.getTaxRate()}}">
       <input type="hidden" name="shipping" value="{{ ngCart.getShipping()}}">
       <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
-      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit"
-             alt="PayPal - The safer, easier way to pay online!">
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" style="border: 0"
+             name="submit" alt="PayPal - The safer, easier way to pay online!">
       <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
     </form>
   </div>

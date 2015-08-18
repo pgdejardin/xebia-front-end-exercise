@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">front-end-exercise</a>
+      <a href="/" class="navbar-brand">Henri Potier Library</a>
     </div>
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
@@ -18,23 +18,22 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li ng-class="{active: isActive('/cart')}"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span>
-          <ngcart-summary></ngcart-summary>
-        </a></li>
+        <li ng-class="{active: isActive('/cart')}">
+          <a href="/cart">
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+            <ngcart-summary></ngcart-summary>
+          </a>
+        </li>
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
         <li ng-show="isLoggedIn()"><p class="navbar-text">Hello {{ getCurrentUser().name }}</p></li>
-        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"><span class="glyphicon glyphicon-cog"></span></a></li>
-        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
+        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}">
+          <a href="/settings"><span class="glyphicon glyphicon-cog"></span></a>
+        </li>
+        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}">
+          <a href="" ng-click="logout()">Logout</a>
+        </li>
       </ul>
     </div>
   </div>
 </div>
-
-<!--  TEMPLATES -->
-
-<script type="text/ng-template" id="template/ngCart/summary.html">
-  <span>{{ ngCart.getTotalItems() }}
-    <ng-pluralize count="ngCart.getTotalItems()" when="{1: 'item', 'other':'items'}"></ng-pluralize>
-  </span>
-</script>

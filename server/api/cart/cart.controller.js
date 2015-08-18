@@ -54,6 +54,7 @@ exports.destroy = function (req, res) {
   });
 };
 
+// Checkout a cart.
 exports.checkout = function (req, res) {
   var cart = new Cart({
     items: req.body.data.items,
@@ -68,6 +69,7 @@ exports.checkout = function (req, res) {
   });
 };
 
+// Get carts for connected user.
 exports.findByUser = function (req, res) {
   Cart.find({userId: req.user._id}, function (err, carts) {
     if (err) { handleError(res, err) }
