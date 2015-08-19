@@ -6,13 +6,13 @@ describe('Service: shop', function() {
   beforeEach(module('frontEndExerciseApp'));
 
   // instantiate service
-  var shop;
-  beforeEach(inject(function(_shop_) {
-    shop = _shop_;
+  var shopService;
+  beforeEach(inject(function(_shopService_) {
+    shopService = _shopService_;
   }));
 
   it('should do something', function() {
-    expect(!!shop).toBe(true);
+    expect(!!shopService).toBe(true);
   });
 
 });

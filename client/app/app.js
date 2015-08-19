@@ -53,5 +53,5 @@ angular.module('frontEndExerciseApp', [
     });
 
     $templateCache.put('order-success.tpl.html', '<div class="modal-header"><h3 class="modal-title">Order validated!</h3></div><div class="modal-body">Your order has been validated.<br/>You can view it on your account page.</div><div class="modal-footer"><button class="btn btn-primary" ng-click="ok()">OK</button></div>');
-    $templateCache.put('template/ngCart/summary.html', '<span>{{ ngCart.getTotalItems() }}<ng-pluralize count="ngCart.getTotalItems()" when="{1: \'item\', \'other\':\'items\'}"></ng-pluralize></span>');
+    $templateCache.put('template/ngCart/summary.html', '<span>{{ ngCart.getTotalItems() }}<ng-pluralize count="ngCart.getTotalItems()" when="{1: \' item\', \'other\':\' items\'}"></ng-pluralize></span>');
   });
