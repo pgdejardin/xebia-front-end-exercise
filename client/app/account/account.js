@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('frontEndExerciseApp')
-  .config(function ($stateProvider) {
+  .config(function($stateProvider) {
     $stateProvider
       .state('login', {
         url: '/login',

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: HomeCtrl', function () {
+describe('Controller: HomeCtrl', function() {
 
   // load the controller's module
   beforeEach(module('frontEndExerciseApp'));
@@ -18,7 +18,7 @@ describe('Controller: HomeCtrl', function () {
     });
   }));
 
-  it('should ...', function () {
+  it('should ...', function() {
     expect(1).toEqual(1);
   });
 });

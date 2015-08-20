@@ -19,7 +19,9 @@
           <p>{{book.price | currency}}</p>
 
           <p>
-            <ngcart-addtocart id="{{book.isbn}}" name="{{book.title}}" price="{{book.price}}" quantity="1" quantity-max="5">Add to Cart</ngcart-addtocart>
+            <ngcart-addtocart id="{{book.isbn}}" name="{{book.title}}" price="{{book.price}}" quantity="1"
+                              quantity-max="5">Add to Cart
+            </ngcart-addtocart>
           </p>
         </div>
       </div>
@@ -34,7 +36,8 @@
     <div ng-show="attrs.id">
       <div>
         <span ng-show="quantityMax">
-            <label for="quantity"></label><select name="quantity" id="quantity" ng-model="q" ng-options=" v for v in qtyOpt"></select>
+            <label for="quantity"></label><select name="quantity" id="quantity" ng-model="q"
+                                                  ng-options=" v for v in qtyOpt"></select>
         </span>
         <a class="btn btn-sm btn-primary" ng-click="ngCart.addItem(id, name, price, q, data)" ng-transclude></a>
       </div>

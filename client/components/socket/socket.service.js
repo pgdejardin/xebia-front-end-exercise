@@ -28,13 +28,13 @@ angular.module('frontEndExerciseApp')
        * @param {Array} array
        * @param {Function} cb
        */
-      syncUpdates: function (modelName, array, cb) {
+      syncUpdates: function(modelName, array, cb) {
         cb = cb || angular.noop;
 
         /**
          * Syncs item creation/updates on 'model:save'
          */
-        socket.on(modelName + ':save', function (item) {
+        socket.on(modelName + ':save', function(item) {
           var oldItem = _.find(array, {_id: item._id});
           var index = array.indexOf(oldItem);
           var event = 'created';
@@ -54,7 +54,7 @@ angular.module('frontEndExerciseApp')
         /**
          * Syncs removed items on 'model:remove'
          */
-        socket.on(modelName + ':remove', function (item) {
+        socket.on(modelName + ':remove', function(item) {
           var event = 'deleted';
           _.remove(array, {_id: item._id});
           cb(event, item, array);
@@ -66,7 +66,7 @@ angular.module('frontEndExerciseApp')
        *
        * @param modelName
        */
-      unsyncUpdates: function (modelName) {
+      unsyncUpdates: function(modelName) {
         socket.removeAllListeners(modelName + ':save');
         socket.removeAllListeners(modelName + ':remove');
       }

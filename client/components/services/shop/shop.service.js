@@ -10,7 +10,7 @@ angular.module('frontEndExerciseApp')
       checkout: function(cart) {
         return $http.post(cartUrl + '/checkout', cart);
       },
-      getCarts: function () {
+      getCarts: function() {
         return $http.get(cartUrl + '/');
       }
     };
