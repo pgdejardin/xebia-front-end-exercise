@@ -48,14 +48,14 @@ var all = {
   },
 
   twitter: {
-    clientID: process.env.TWITTER_ID || 'gUlFisVWRn80DTL0P98Vedw81',
-    clientSecret: process.env.TWITTER_SECRET || 'TIaQr2NUr006326FQIweYW4G7VonlyyLvwhj8cRwJJfSIkByZE',
+    clientID: process.env.TWITTER_ID, 
+    clientSecret: process.env.TWITTER_SECRET,
     callbackURL: (process.env.DOMAIN || '') + '/auth/twitter/callback'
   },
 
   google: {
-    clientID: process.env.GOOGLE_ID || '370811156127-hancelcrb8fqdd6q68q6osvtvopeh4hg.apps.googleusercontent.com',
-    clientSecret: process.env.GOOGLE_SECRET || 'BbCo007gj4FWxD56DMNjqn1k',
+    clientID: process.env.GOOGLE_ID,
+    clientSecret: process.env.GOOGLE_SECRET,
     callbackURL: (process.env.DOMAIN || '') + '/auth/google/callback'
   },
   xebiaApiUrl: 'http://henri-potier.xebia.fr'

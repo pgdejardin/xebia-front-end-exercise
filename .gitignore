@@ -7,3 +7,4 @@ dist
 /server/config/local.env.js
 
 *.iml
+server/config/local.env.sample.js
